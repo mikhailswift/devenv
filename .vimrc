@@ -19,6 +19,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'godlygeek/tabular'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
 
 " End of plugins, don't add after this
 call vundle#end()

@@ -18,6 +18,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'godlygeek/tabular'
 Plugin 'maksimr/vim-jsbeautify'
+Plugin 'airblade/vim-gitgutter'
 
 " End of plugins, don't add after this
 call vundle#end()
@@ -64,6 +65,8 @@ set hidden
 
 " show me the commands
 set showcmd
+
+set updatetime=250
 
 " F8 will toggle my tagbar
 nmap <F8> :TagbarToggle<CR>

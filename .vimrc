@@ -72,3 +72,9 @@ set updatetime=250
 " F8 will toggle my tagbar
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :NERDTreeToggle<CR>
+
+autocmd BufWritePre *.js :call JsBeautify()
+autocmd BufWritePre *.json :call JsBeautify()
+autocmd BufWritePre *.jsx :call JsBeautify()
+autocmd BufWritePre *.css :call JsBeautify()
+autocmd BufWritePre *.html :call JsBeautify()

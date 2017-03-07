@@ -14,9 +14,7 @@ Plugin 'tpope/vim-sensible'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'pangloss/vim-javascript'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-airline/vim-airline'
-Plugin 'godlygeek/tabular'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
@@ -73,6 +71,7 @@ set updatetime=250
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :NERDTreeToggle<CR>
 
+" JsBeautify config
 autocmd BufWritePre *.js :call JsBeautify()
 autocmd BufWritePre *.json :call JsBeautify()
 autocmd BufWritePre *.jsx :call JsBeautify()

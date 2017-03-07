@@ -58,14 +58,6 @@ function parse_git_dirty {
 
 
 export PS1="\[\e[31m\]\u\[\e[m\]@\[\e[34;40m\]\h\[\e[m\][\[\e[33m\]\W\[\e[m\]]-\[\e[32m\]\A\[\e[m\]-\`parse_git_branch\`\\$ "
-export GOPATH="$HOME/gocode"
-
-# I want xterm-256color when not in tmux, otherwise use screen-256color
-if [ -z "$TMUX" ]; then
-    export TERM="xterm-256color"
-else
-    export TERM="screen-256color"
-fi
 
 # Aliases
 

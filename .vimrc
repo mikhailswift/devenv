@@ -8,7 +8,7 @@ call vundle#begin()
 " Plugins
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer --tern-completer' }
+" Plugin 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer --tern-completer' }
 Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-sensible'
 Plugin 'altercation/vim-colors-solarized'

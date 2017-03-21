@@ -84,8 +84,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH="/home/mswift/bin/Sencha/Cmd:$PATH"
-export GOPATH="$HOME/gocode"
 if [[ -a ~/.machinebashrc ]]; then
     source ~/.machinebashrc
 fi

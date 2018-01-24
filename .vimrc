@@ -8,7 +8,7 @@ call vundle#begin()
 " Plugins
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'majutsushi/tagbar'
-" Plugin 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer --tern-completer' }
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-sensible'
 Plugin 'altercation/vim-colors-solarized'
@@ -77,3 +77,6 @@ autocmd BufWritePre *.json :call JsBeautify()
 autocmd BufWritePre *.jsx :call JsBeautify()
 autocmd BufWritePre *.css :call JsBeautify()
 autocmd BufWritePre *.html :call JsBeautify()
+
+" Properly account for spaces in taml files
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab

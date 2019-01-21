@@ -8,12 +8,10 @@ call vundle#begin()
 " Plugins
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'Shougo/deoplete.nvim'
 Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-sensible'
-"Plugin 'altercation/vim-colors-solarized'
 Plugin 'icymind/NeoSolarized'
-"Plugin 'rakr/vim-one'
 Plugin 'scrooloose/nerdtree'
 Plugin 'pangloss/vim-javascript'
 Plugin 'vim-airline/vim-airline'
@@ -87,3 +85,5 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 set termguicolors
 
 let g:gitgutter_override_sign_column_highlight=0
+
+let g:deoplete#enable_at_startup=1

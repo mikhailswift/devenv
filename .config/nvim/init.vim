@@ -1,1 +1,1 @@
-/home/mswift/.vimrc
+../../.vimrc

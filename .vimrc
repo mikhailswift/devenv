@@ -1,29 +1,34 @@
 set nocompatible
-filetype off
 
-" include vundle and init
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
-" Plugins
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'fatih/vim-go'
-Plugin 'tpope/vim-sensible'
-Plugin 'icymind/NeoSolarized'
-Plugin 'scrooloose/nerdtree'
-Plugin 'pangloss/vim-javascript'
-Plugin 'vim-airline/vim-airline'
-Plugin 'maksimr/vim-jsbeautify'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
+set runtimepath+=~/.vim/bundle/dein/repos/github.com/Shougo/dein.vim
 
-" End of plugins, don't add after this
-call vundle#end()
+if dein#load_state('~/.vim/bundle/dein')
+    call dein#begin('~/.vim/bundle/dein')
+        " Plugins
+        call dein#add('majutsushi/tagbar')
+        call dein#add('Shougo/deoplete.nvim')
+        call dein#add('zchee/deoplete-go', { 'build': 'make' })
+        call dein#add('fatih/vim-go')
+        call dein#add('tpope/vim-sensible')
+        call dein#add('icymind/NeoSolarized')
+        call dein#add('scrooloose/nerdtree')
+        call dein#add('pangloss/vim-javascript')
+        call dein#add('vim-airline/vim-airline')
+        call dein#add('maksimr/vim-jsbeautify')
+        call dein#add('airblade/vim-gitgutter')
+        call dein#add('tpope/vim-fugitive')
+    call dein#end()
+    call dein#save_state()
+endif
+
+
+
+
 
 " Begin vim settings
 filetype plugin indent on
+syntax enable
 
 " Solarized theme
 colorscheme NeoSolarized

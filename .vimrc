@@ -1,6 +1,5 @@
 set nocompatible
 
-
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state('~/.cache/dein')
@@ -9,6 +8,9 @@ if dein#load_state('~/.cache/dein')
         call dein#add('majutsushi/tagbar')
         call dein#add('Shougo/deoplete.nvim')
         call dein#add('zchee/deoplete-go', { 'build': 'make' })
+        call dein#add('carlitux/deoplete-ternjs', { 'build': 'npm install -g ternjs' })
+        call dein#add('HerringtonDarkholme/yats.vim')
+        call dein#add('mhartington/nvim-typescript', { 'build': './install.sh' })
         call dein#add('fatih/vim-go')
         call dein#add('tpope/vim-sensible')
         call dein#add('icymind/NeoSolarized')
@@ -79,10 +81,10 @@ nmap <F7> :NERDTreeToggle<CR>
 
 " JsBeautify config
 autocmd BufWritePre *.js :call JsBeautify()
-autocmd BufWritePre *.json :call JsBeautify()
-autocmd BufWritePre *.jsx :call JsBeautify()
-autocmd BufWritePre *.css :call JsBeautify()
-autocmd BufWritePre *.html :call JsBeautify()
+autocmd BufWritePre *.json :call JsonBeautify()
+autocmd BufWritePre *.jsx :call JsxBeautify()
+autocmd BufWritePre *.css :call CssBeautify()
+autocmd BufWritePre *.html :call HtmlBeautify()
 
 " Properly account for spaces in taml files
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab

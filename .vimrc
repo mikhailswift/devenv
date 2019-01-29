@@ -1,10 +1,10 @@
 set nocompatible
 
 
-set runtimepath+=~/.vim/bundle/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-if dein#load_state('~/.vim/bundle/dein')
-    call dein#begin('~/.vim/bundle/dein')
+if dein#load_state('~/.cache/dein')
+    call dein#begin('~/.cache/dein')
         " Plugins
         call dein#add('majutsushi/tagbar')
         call dein#add('Shougo/deoplete.nvim')

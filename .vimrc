@@ -20,6 +20,7 @@ if dein#load_state('~/.cache/dein')
         call dein#add('maksimr/vim-jsbeautify')
         call dein#add('airblade/vim-gitgutter')
         call dein#add('tpope/vim-fugitive')
+        call dein#add('heavenshell/vim-tslint')
     call dein#end()
     call dein#save_state()
 endif
@@ -85,6 +86,9 @@ autocmd BufWritePre *.json :call JsonBeautify()
 autocmd BufWritePre *.jsx :call JsxBeautify()
 autocmd BufWritePre *.css :call CssBeautify()
 autocmd BufWritePre *.html :call HtmlBeautify()
+
+" TSLint config
+autocmd BufWritePost *.ts, *.tsx :call tslint#run('a', win_getid())
 
 " Properly account for spaces in taml files
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab

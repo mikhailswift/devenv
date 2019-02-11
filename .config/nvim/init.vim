@@ -17,10 +17,9 @@ if dein#load_state('~/.cache/dein')
         call dein#add('scrooloose/nerdtree')
         call dein#add('pangloss/vim-javascript')
         call dein#add('vim-airline/vim-airline')
-        call dein#add('maksimr/vim-jsbeautify')
+        call dein#add('prettier/vim-prettier', { 'build': 'yarn install' })
         call dein#add('airblade/vim-gitgutter')
         call dein#add('tpope/vim-fugitive')
-        call dein#add('heavenshell/vim-tslint')
     call dein#end()
     call dein#save_state()
 endif
@@ -80,15 +79,8 @@ set updatetime=250
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :NERDTreeToggle<CR>
 
-" JsBeautify config
-autocmd BufWritePre *.js :call JsBeautify()
-autocmd BufWritePre *.json :call JsonBeautify()
-autocmd BufWritePre *.jsx :call JsxBeautify()
-autocmd BufWritePre *.css :call CssBeautify()
-autocmd BufWritePre *.html :call HtmlBeautify()
-
-" TSLint config
-autocmd BufWritePost *.ts, *.tsx :call tslint#run('a', win_getid())
+let g:prettier#autoformat = 0
+autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 " Properly account for spaces in taml files
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab

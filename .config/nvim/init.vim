@@ -89,7 +89,7 @@ autocmd BufWritePre *.html :call HtmlBeautify()
 
 
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.ts,*.tsx,*.less,*.graphql,*.md,*.vue,*.yaml PrettierAsync
+autocmd BufWritePre *.ts,*.tsx,*.less,*.graphql,*.vue,*.yaml PrettierAsync
 
 " Properly account for spaces in taml files
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab

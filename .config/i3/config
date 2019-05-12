@@ -24,7 +24,7 @@ set $horiz b
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:source code pro for powerline 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -177,7 +177,20 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# bumblebee config
+bar {
+	font pango:Source Code Pro for Powerline 8
+	tray_output none
+	status_command ~/.bumblebee-status/bumblebee-status -t iceberg-rainbow -m spotify nic disk:root cpu memory date time pasink pasource brightness battery -p time.format="%H:%M" date.format="%a, %b %d %Y" nic.states="^down" nic.exclude="br-,lo,docker"
+	position top
+
+	colors {
+		background 			#d64343
+		focused_workspace 		#4a9dd8 #e2a478 #161821
+		urgent_workspace		#4a9dd8 #e27878 #161821
+		inactive_workspace		#4a9dd8 #89b8c2 #161821
+	}
+}
 
 # Desktop screenshot
 bindsym --release Print exec "scrot ~/Screenshots/$(date --iso-8601='seconds').png -m -e 'xclip -selection c -t image/png < $f'"
@@ -187,14 +200,17 @@ bindsym --release Shift+Print exec "scrot ~/Screenshots/$(date --iso-8601='secon
 bindsym --release $mod+Print exec "scrot ~/Screenshots/$(date --iso-8601='seconds').png -u -e 'xclip -selection c -t image/png < $f'"
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 4 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 4 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 4 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+# Brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 for_window [class=".*"] border pixel 0
 

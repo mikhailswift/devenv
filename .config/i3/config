@@ -11,6 +11,7 @@
 exec --no-startup-id compton
 exec --no-startup-id xmodmap ~/.Xmodmap
 exec --no-startup-id ~/.fehbg &
+exec --no-startup-id dunst
 
 set $mod Mod4 
 
@@ -181,7 +182,7 @@ bindsym $mod+r mode "resize"
 bar {
 	font pango:Source Code Pro for Powerline 8
 	tray_output none
-	status_command ~/.bumblebee-status/bumblebee-status -t iceberg-rainbow -m spotify nic disk:root cpu memory date time pasink pasource brightness battery -p time.format="%H:%M" date.format="%a, %b %d %Y" nic.states="^down" nic.exclude="br-,lo,docker"
+	status_command ~/.bumblebee-status/bumblebee-status -t iceberg-rainbow -m spotify nic disk:root cpu memory date time pasink pasource battery -p time.format="%H:%M" date.format="%a, %b %d %Y" nic.states="^down" nic.exclude="br-,lo,docker"
 	position top
 
 	colors {

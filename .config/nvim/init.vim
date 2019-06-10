@@ -4,29 +4,36 @@ set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state('~/.cache/dein')
     call dein#begin('~/.cache/dein')
-        " Plugins
-        call dein#add('majutsushi/tagbar')
-        call dein#add('Shougo/deoplete.nvim')
-        call dein#add('zchee/deoplete-go', { 'build': 'make' })
-        call dein#add('carlitux/deoplete-ternjs', { 'build': 'npm install -g ternjs' })
-        call dein#add('HerringtonDarkholme/yats.vim')
-        call dein#add('mhartington/nvim-typescript', { 'build': './install.sh' })
-        call dein#add('fatih/vim-go')
+        " Basic plugins (themes/settings)
         call dein#add('tpope/vim-sensible')
         call dein#add('icymind/NeoSolarized')
-        call dein#add('scrooloose/nerdtree')
-        call dein#add('pangloss/vim-javascript')
+
+        " Global utiltiy plugins
         call dein#add('vim-airline/vim-airline')
-        call dein#add('prettier/vim-prettier', { 'build': 'yarn install' })
-        call dein#add('airblade/vim-gitgutter')
+        call dein#add('majutsushi/tagbar')
+        call dein#add('scrooloose/nerdtree')
+       
+        " Git in vim
         call dein#add('tpope/vim-fugitive')
+        call dein#add('airblade/vim-gitgutter')
+        
+        " Auto complete
+        call dein#add('Shougo/deoplete.nvim')
+        call dein#add('deoplete-plugins/deoplete-go')
+
+        " Golang
+        call dein#add('fatih/vim-go')
+        
+        " Ts/Js
+        "call dein#add('pangloss/vim-javascript')
+        call dein#add('HerringtonDarkholme/yats.vim')
+        call dein#add('mhartington/nvim-typescript', { 'build': './install.sh' })
+
+        " Formatting
+        call dein#add('prettier/vim-prettier', { 'build': 'yarn install' })
     call dein#end()
     call dein#save_state()
 endif
-
-
-
-
 
 " Begin vim settings
 filetype plugin indent on
@@ -34,7 +41,6 @@ syntax enable
 
 " Solarized theme
 colorscheme NeoSolarized
-"colorscheme NeoSolarized
 set background=dark
 
 " 4 spaces when tab is pressed
@@ -82,11 +88,10 @@ nmap <F7> :NERDTreeToggle<CR>
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.json,*.jsx,*.ts,*.tsx,*.less,*.graphql,*.vue,*.yaml PrettierAsync
 
-" Properly account for spaces in taml files
+" Properly account for spaces in yaml files
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 set termguicolors
 
 let g:gitgutter_override_sign_column_highlight=0
-
 let g:deoplete#enable_at_startup=1

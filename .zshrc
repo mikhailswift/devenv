@@ -10,8 +10,9 @@ export ZSH=~/.oh-my-zsh
 # ZSH_THEME="robbyrussell"
 POWERLEVEL9K_MODE="nerdfont-complete"
 ZSH_THEME="powerlevel10k/powerlevel10k"
+DEFAULT_USER="mswift"
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_last"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context ssh dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
 
 # Uncomment the following line to use case-sensitive completion.

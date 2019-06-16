@@ -1,4 +1,4 @@
-# Lifted from oh-my-zsh/lib/history.zsh
+
 ## History wrapper
 function omz_history {
   local clear list
@@ -121,6 +121,8 @@ POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_last"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
 source ~/.zshplugins/powerlevel10k/powerlevel10k.zsh-theme
+
+source ~/.zshplugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 alias ls="ls --color=auto"
 alias grep="grep --color=auto --exclude-dir=.git"

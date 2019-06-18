@@ -10,7 +10,6 @@ if dein#load_state('~/.cache/dein')
 
         " Global utiltiy plugins
         call dein#add('vim-airline/vim-airline')
-        call dein#add('majutsushi/tagbar')
         call dein#add('scrooloose/nerdtree')
        
         " Git in vim

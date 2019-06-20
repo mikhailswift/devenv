@@ -1,5 +1,7 @@
 [options]
 font = Sauce Code Pro Nerd Font 9
+cursor_shape = ibeam
+cursor_blink = off
 
 [colors]
 foreground          = #abb2bf

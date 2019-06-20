@@ -1,31 +1,47 @@
 [options]
 font = Sauce Code Pro Nerd Font 9
 
-# Solarized dark color scheme
 [colors]
-foreground = #839496
-foreground_bold = #eee8d5
-#foreground_dim = #888888
-background = #002b36
-cursor = #93a1a1
+foreground          = #abb2bf
+foreground_bold     = #b6bdca
+cursor              = #b6bdca
+cursor_foreground   = #282c34
+background          = rgba(40, 44, 52)
+# 16 color space
 
-# if unset, will reverse foreground and background
-#highlight = #839496
+# Black, Gray, Silver, White
+color0  = #282c34
+color8  = #545862
+color7  = #abb2bf
+color15 = #c8ccd4
 
-# colors from color0 to color254 can be set
-color0 = #073642
-color1 = #dc322f
-color2 = #859900
-color3 = #b58900
-color4 = #268bd2
-color5 = #d33682
-color6 = #2aa198
-color7 = #eee8d5
-color8 = #002b36
-color9 = #cb4b16
-color10 = #586e75
-color11 = #657b83
-color12 = #839496
-color13 = #6c71c4
-color14 = #93a1a1
-color15 = #fdf6e3
+# Red
+color1  = #e06c75
+color9  = #e06c75
+
+# Green
+color2  = #98c379
+color10 = #98c379
+
+# Yellow
+color3  = #e5c07b
+color11 = #e5c07b
+
+# Blue
+color4  = #61afef
+color12 = #61afef
+
+# Purple
+color5  = #c678dd
+color13 = #c678dd
+
+# Teal
+color6  = #56b6c2
+color14 = #56b6c2
+
+# Extra colors
+color16 = #d19a66
+color17 = #be5046
+color18 = #353b45
+color19 = #3e4451
+color20 = #565c64

@@ -6,10 +6,10 @@ if dein#load_state('~/.cache/dein')
     call dein#begin('~/.cache/dein')
         " Basic plugins (themes/settings)
         call dein#add('tpope/vim-sensible')
-        call dein#add('icymind/NeoSolarized')
+        call dein#add('joshdick/onedark.vim')
 
         " Global utiltiy plugins
-        call dein#add('vim-airline/vim-airline')
+        call dein#add('itchyny/lightline.vim')
         call dein#add('scrooloose/nerdtree')
        
         " Git in vim
@@ -38,9 +38,10 @@ endif
 filetype plugin indent on
 syntax enable
 
-" Solarized theme
-colorscheme NeoSolarized
-set background=dark
+" color theme
+let g:onedark_terminal_italics=1
+colorscheme onedark
+let g:lightline = { 'colorscheme': 'onedark' }
 
 " 4 spaces when tab is pressed
 set shiftwidth=4
@@ -94,3 +95,15 @@ set termguicolors
 
 let g:gitgutter_override_sign_column_highlight=0
 let g:deoplete#enable_at_startup=1
+
+" Go config
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+let g:go_auto_sameids = 1
+let g:go_auto_type_info = 1

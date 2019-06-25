@@ -180,9 +180,9 @@ bindsym $mod+r mode "resize"
 
 # bumblebee config
 bar {
-	font pango:Source Code Pro for Powerline 8
+	font pango:Sauce Code Pro Nerd Font 8
 	tray_output none
-	status_command ~/.bumblebee-status/bumblebee-status -t iceberg-rainbow -m spotify nic disk:root cpu memory date time pasink pasource battery -p time.format="%H:%M" date.format="%a, %b %d %Y" nic.states="^down" nic.exclude="br-,lo,docker"
+	status_command ~/.bumblebee-status/bumblebee-status -t iceberg-rainbow -m spotify nic disk:root cpu memory date time pasink pasource battery -p time.format="%H:%M" date.format="%a, %b %d %Y" nic.states="^down" nic.exclude="br-,lo,docker,vir"
 	position top
 
 	colors {

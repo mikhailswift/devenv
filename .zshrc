@@ -206,5 +206,12 @@ source ~/.zshplugins/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.zshplugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Aliases
-alias ls="ls --color=auto"
+case `uname` in
+    Darwin)
+        alias ls="ls -G"
+        ;;
+    Linux)
+        alias ls="ls --color=auto"
+        ;;
+esac
 alias grep="grep --color=auto --exclude-dir=.git"

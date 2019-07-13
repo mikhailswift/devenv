@@ -24,6 +24,8 @@ python2-pip
 xclip
 pulseaudio
 pulseaudio-alsa
+maim
+ffmpeg
 
 aur:
 yay

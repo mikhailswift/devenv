@@ -1,0 +1,34 @@
+#!/bin/bash
+usage() {
+    echo "$0 [outfile]"
+    echo "$0 will run until it receives a SIGTERM or SIGINT."
+    echo "Once a SIGINT/TERM is received, the captured video will be"
+    echo "converted to a gif at the specified location."
+}
+
+writegif() {
+    kill $FFMPEG_PID
+    wait $FFMPEG_PID
+    PALETTEFILE=$TMPFILE.palette.png
+    notification_id=$(dunstify -p -t 999 -a "$0" 'Screencast' 'Generating palette')
+    ffmpeg -y -i $TMPFILE -vf fps=10,palettegen $PALETTEFILE 
+    dunstify -C "${notification_id}"
+    notification_id=$(dunstify -p -t 999 -a "$0" 'Screencast' 'Generating GIF')
+    ffmpeg -y -i $TMPFILE -i $PALETTEFILE -filter_complex paletteuse $OUTPUT
+    dunstify -C "${notification_id}"
+    rm $PALETTEFILE
+    rm $TMPFILE
+}
+
+if [ -z $1 ]; then
+    usage
+    exit 1
+fi
+
+OUTPUT=$1
+TMPFILE="$(mktemp -t screencast-XXXXXXX.mkv)"
+trap writegif EXIT SIGTERM SIGINT
+read -r X Y W H G ID < <(slop -f "%x %y %w %h %g %i")
+ffmpeg -y -f x11grab -s "$W"x"$H" -i :0.0+$X,$Y "$TMPFILE" &
+FFMPEG_PID=$!
+dunstify --action="stop,Stop Recording" "Screencast" "Capturing screen. Dismiss notification to stop recording"

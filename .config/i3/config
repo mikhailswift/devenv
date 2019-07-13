@@ -194,11 +194,13 @@ bar {
 }
 
 # Desktop screenshot
-bindsym --release Print exec "scrot ~/Screenshots/$(date --iso-8601='seconds').png -m -e 'xclip -selection c -t image/png < $f'"
+bindsym --release Print exec --no-startup-id "FILENAME=$HOME/Pictures/Screenshots/$(date +%F-%H-%M-%S).png; maim $FILENAME; xclip -selection clipboard -t image/png < $FILENAME"
 # Selection screenshot
-bindsym --release Shift+Print exec "scrot ~/Screenshots/$(date --iso-8601='seconds').png -s -e 'xclip -selection c -t image/png < $f'"
-# Current window screensho
-bindsym --release $mod+Print exec "scrot ~/Screenshots/$(date --iso-8601='seconds').png -u -e 'xclip -selection c -t image/png < $f'"
+bindsym --release Shift+Print exec --no-startup-id "FILENAME=$HOME/Pictures/Screenshots/$(date +%F-%H-%M-%S).png; maim -s $FILENAME; xclip -selection clipboard -t image/png < $FILENAME"
+# Current window screenshot
+bindsym --release $mod+Print exec --no-startup-id "FILENAME=$HOME/Pictures/Screenshots/$(date +%F-%H-%M-%S).png; maim -i $(xdotool getactivewindow) $FILENAME; xclip -selection clipboard -t image/png < $FILENAME"
+# Selection of screen to gif
+bindsym --release Control+Print exec --no-startup-id "screencast $HOME/Pictures/Screencasts/$(date +%F-%H-%M-%S).gif"
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume

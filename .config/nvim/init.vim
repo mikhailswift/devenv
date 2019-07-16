@@ -18,13 +18,12 @@ if dein#load_state('~/.cache/dein')
         
         " Auto complete
         call dein#add('Shougo/deoplete.nvim')
-        call dein#add('deoplete-plugins/deoplete-go')
 
         " Golang
         call dein#add('fatih/vim-go')
         
         " Ts/Js
-        "call dein#add('pangloss/vim-javascript')
+        " call dein#add('pangloss/vim-javascript')
         call dein#add('HerringtonDarkholme/yats.vim')
         call dein#add('mhartington/nvim-typescript', { 'build': './install.sh' })
 
@@ -43,7 +42,7 @@ set softtabstop=4
 set expandtab
 set mouse=a
 set confirm
-set number
+set number relativenumber
 set cmdheight=2
 set ruler
 set autoindent
@@ -70,7 +69,10 @@ autocmd BufWritePre *.js,*.json,*.jsx,*.ts,*.tsx,*.less,*.graphql,*.vue,*.yaml P
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 let g:gitgutter_override_sign_column_highlight=0
+
+" Deoplete config
 let g:deoplete#enable_at_startup=1
+call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 
 " Go config
 let g:go_highlight_build_constraints = 1

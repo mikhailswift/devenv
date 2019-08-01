@@ -26,6 +26,9 @@ pulseaudio
 pulseaudio-alsa
 maim
 ffmpeg
+libnotify
+nomacs
+xdotool
 
 aur:
 yay

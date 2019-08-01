@@ -215,3 +215,8 @@ case `uname` in
         ;;
 esac
 alias grep="grep --color=auto --exclude-dir=.git"
+
+if [[ $TERM == xterm-termite ]]; then
+  . /etc/profile.d/vte.sh
+  __vte_osc7
+fi

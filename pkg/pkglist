@@ -19,6 +19,7 @@ python-pip
 python-requests
 python-netifaces
 python-psutil
+python-dbus
 python2
 python2-pip
 xclip

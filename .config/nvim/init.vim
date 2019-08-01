@@ -60,7 +60,7 @@ let g:onedark_terminal_italics=1
 colorscheme onedark
 let g:lightline = { 'colorscheme': 'onedark' }
 
-nmap <C-n> :NERDTreeToggle<CR>
+nmap <C-n> :NERDTreeToggle %<CR>
 
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.json,*.jsx,*.ts,*.tsx,*.less,*.graphql,*.vue,*.yaml PrettierAsync

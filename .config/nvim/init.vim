@@ -11,24 +11,21 @@ if dein#load_state('~/.cache/dein')
         " Global utiltiy plugins
         call dein#add('itchyny/lightline.vim')
         call dein#add('scrooloose/nerdtree')
+        call dein#add('sheerun/vim-polyglot', { 'merged': 0 })
        
         " Git in vim
         call dein#add('tpope/vim-fugitive')
         call dein#add('airblade/vim-gitgutter')
         
         " Auto complete
-        call dein#add('Shougo/deoplete.nvim')
+        call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'release' })
+        call dein#add('neoclide/coc-tsserver', { 'build': 'yarn install --frozen-lockfile' })
+        call dein#add('neoclide/coc-prettier', { 'build': 'yarn install --frozen-lockfile' })
+        call dein#add('neoclide/coc-json', { 'build': 'yarn install --frozen-lockfile' })
+        call dein#add('neoclide/coc-eslint', { 'build': 'yarn install --frozen-lockfile' })
 
         " Golang
         call dein#add('fatih/vim-go')
-        
-        " Ts/Js
-        " call dein#add('pangloss/vim-javascript')
-        call dein#add('HerringtonDarkholme/yats.vim')
-        call dein#add('mhartington/nvim-typescript', { 'build': './install.sh' })
-
-        " Formatting
-        call dein#add('prettier/vim-prettier', { 'build': 'yarn install' })
     call dein#end()
     call dein#save_state()
 endif
@@ -54,34 +51,58 @@ set showcmd
 set updatetime=250
 set noshowmode
 au VimLeave * set guicursor=a:ver25
+nnoremap <SPACE> <Nop>
+let mapleader= "\<Space>"
 
 " color theme
 let g:onedark_terminal_italics=1
 colorscheme onedark
 let g:lightline = { 'colorscheme': 'onedark' }
 
-nmap <C-n> :NERDTreeToggle %<CR>
-
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.json,*.jsx,*.ts,*.tsx,*.less,*.graphql,*.vue,*.yaml PrettierAsync
+" Opens NERDTree to current file's directory or directory vim was run from
+nmap <silent><C-n> :execute (@% == '' ? 'NERDTreeToggle' : 'NERDTreeToggle %')<CR>
 
 " Properly account for spaces in yaml files
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 let g:gitgutter_override_sign_column_highlight=0
 
-" Deoplete config
-let g:deoplete#enable_at_startup=1
-call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
-
 " Go config
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_types = 1
-let g:go_auto_sameids = 1
-let g:go_auto_type_info = 1
+let g:go_def_mapping_enabled = 0
+let g:go_gopls_enabled = 0
+
+" coc.nvim setup
+set shortmess+=c
+set signcolumn=yes
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use `[c` and `]c` to navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" Use U to show documentation in preview window
+nnoremap <silent> U :call <SID>show_documentation()<CR>
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)

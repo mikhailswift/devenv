@@ -11,7 +11,7 @@ if dein#load_state('~/.cache/dein')
         " Global utiltiy plugins
         call dein#add('itchyny/lightline.vim')
         call dein#add('scrooloose/nerdtree')
-        call dein#add('sheerun/vim-polyglot', { 'merged': 0 })
+        call dein#add('sheerun/vim-polyglot', { 'merged': 0, 'build': './build' })
        
         " Git in vim
         call dein#add('tpope/vim-fugitive')

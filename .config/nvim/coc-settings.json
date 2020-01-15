@@ -14,6 +14,17 @@
                     "directory": "/tmp/ccls"
                 }
             }
+        },
+        "bash": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh"],
+            "ignoredRootPaths": ["~"]
+        },
+        "dockerfile": {
+            "command": "docker-langserver",
+            "filetypes": ["dockerfile"],
+            "args": ["--stdio"]
         }
     },
     "coc.preferences.formatOnSaveFiletypes": ["css", "Markdown", "javascript", "javascriptreact", "typescript", "typescriptreact", "json"]

@@ -19,10 +19,6 @@ if dein#load_state('~/.cache/dein')
         
         " Auto complete
         call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'release' })
-        call dein#add('neoclide/coc-tsserver', { 'build': 'yarn install --frozen-lockfile' })
-        call dein#add('neoclide/coc-prettier', { 'build': 'yarn install --frozen-lockfile' })
-        call dein#add('neoclide/coc-json', { 'build': 'yarn install --frozen-lockfile' })
-        call dein#add('neoclide/coc-eslint', { 'build': 'yarn install --frozen-lockfile' })
 
         " Golang
         call dein#add('fatih/vim-go')
@@ -72,6 +68,7 @@ let g:go_def_mapping_enabled = 0
 let g:go_gopls_enabled = 0
 
 " coc.nvim setup
+let g:coc_global_extensions=['coc-tsserver', 'coc-prettier', 'coc-json', 'coc-eslint', 'coc-css', ]
 set shortmess+=c
 set signcolumn=yes
 autocmd CursorHold * silent call CocActionAsync('highlight')

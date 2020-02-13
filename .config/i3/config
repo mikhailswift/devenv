@@ -218,7 +218,5 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 for_window [class=".*"] border pixel 0
-
-gaps inner 5
-gaps outer 5 
-smart_borders on
+gaps inner 16
+smart_gaps on

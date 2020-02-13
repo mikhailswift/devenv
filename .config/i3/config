@@ -13,6 +13,7 @@ exec --no-startup-id xmodmap ~/.Xmodmap
 exec --no-startup-id ~/.fehbg &
 exec --no-startup-id dunst
 exec --no-startup-id autorandr -c
+exec --no-startup-id ~/.config/polybar/launch.sh
 
 set $mod Mod4 
 
@@ -180,19 +181,19 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # bumblebee config
-bar {
-	font pango:Sauce Code Pro Nerd Font 8
-	tray_output none
-	status_command ~/.bumblebee-status/bumblebee-status -t iceberg-rainbow -m spotify nic disk:root cpu memory date time pasink pasource battery -p time.format="%H:%M" date.format="%a, %b %d %Y" nic.states="^down" nic.exclude="br-,lo,docker,vir"
-	position top
-
-	colors {
-		background 			#d64343
-		focused_workspace 		#4a9dd8 #e2a478 #161821
-		urgent_workspace		#4a9dd8 #e27878 #161821
-		inactive_workspace		#4a9dd8 #89b8c2 #161821
-	}
-}
+##bar {
+#	font pango:Sauce Code Pro Nerd Font 8
+#	tray_output none
+#	status_command ~/.bumblebee-status/bumblebee-status -t iceberg-rainbow -m spotify nic disk:root cpu memory date time pasink pasource battery -p time.format="%H:%M" date.format="%a, %b %d %Y" nic.states="^down" nic.exclude="br-,lo,docker,vir"
+#	position top
+#
+#	colors {
+#		background 			#d64343
+#		focused_workspace 		#4a9dd8 #e2a478 #161821
+#		urgent_workspace		#4a9dd8 #e27878 #161821
+#		inactive_workspace		#4a9dd8 #89b8c2 #161821
+#	}
+#}
 
 # Desktop screenshot
 bindsym --release Print exec --no-startup-id "FILENAME=$HOME/Pictures/Screenshots/$(date +%F-%H-%M-%S).png; maim $FILENAME; xclip -selection clipboard -t image/png < $FILENAME"

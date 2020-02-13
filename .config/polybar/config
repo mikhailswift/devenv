@@ -1,0 +1,191 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[color]
+bground=#282c34
+fground=#f7f7f7
+accent=#1E88E5
+shade1=#0D47A1
+shade2=#1565C0
+shade3=#1976D2
+shade4=#1E88E5
+shade5=#2196F3
+shade6=#42A5F5
+shade7=#64B5F6
+shade8=#90CAF9
+red=#e53935
+
+[bar/main]
+monitor=
+monitor-fallback=
+monitor-strict=false
+override-redirect=false
+bottom=false
+fixed-center=true
+width=100%
+height=22
+offset-x=0
+offset-y=0
+background=${color.bground}
+foreground=${color.fground}
+radius-top=0
+radius-bottom=0
+overline-size=2
+overline-color=${color.accent}
+padding=0
+module-margin-left=0
+module-margin-right=0
+tray-position = none
+tray-detached = false
+tray-maxsize = 16
+tray-transparent = false
+tray-background = ${color.bground}
+tray-offset-x = 0
+tray-offset-y = 0
+tray-padding = 0
+tray-scale = 1.0
+enable-ipc = true
+
+font-0="Sauce Code Pro Nerd Font:size=9;2"
+font-1="Sauce Code Pro Nerd Font:size=16;3"
+font-2="Symbols Nerd Font:size=9;2"
+font-3="Symbols Nerd Font:size=11;2"
+
+scroll-up=i3wm-wsnext
+scroll-down=i3wm-wsprev
+
+modules-left=launcher left1 spotify left2
+modules-center=workspaces
+modules-right=right3 network right2 audio right1 date
+
+[settings]
+throttle-output = 5
+throttle-output-for = 10
+throttle-input-for = 30
+screenchange-reload = false
+compositing-background = source
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
+pseudo-transparency = false
+
+[module/launcher]
+type=custom/text
+content=
+content-background=${color.shade1}
+content-foreground=${color.fground}
+content-padding=1
+click-left=rofi -show run -fullscren True -lines 5 -line-margin 5 -padding 300 -bw 0
+
+[module/left1]
+type=custom/text
+content-background=${color.shade2}
+content-foreground=${color.shade1}
+content="%{T2}%{T-}"
+
+[module/left2]
+type=custom/text
+content-background=${color.bground}
+content-foreground=${color.shade2}
+content="%{T2}%{T-}"
+
+[module/right1]
+type=custom/text
+content-background=${color.shade2}
+content-foreground=${color.shade1}
+content="%{T2}%{T-}"
+
+[module/right2]
+type=custom/text
+content-background=${color.shade3}
+content-foreground=${color.shade2}
+content="%{T2}%{T-}"
+
+[module/right3]
+type=custom/text
+content-background=${color.bground}
+content-foreground=${color.shade3}
+content="%{T2}%{T-}"
+
+[module/workspaces]
+type=internal/i3
+label-focused=
+label-unfocused=
+label-urgent=
+label-focused-foreground=${color.accent}
+label-focused-padding=1
+label-unfocused-foreground=${color.accent}
+label-unfocused-padding=1
+label-urgent-foreground=${color.red}
+label-urgent-padding=1
+
+[module/date]
+type=internal/date
+time= %H:%M:%S
+date= %b %d
+label=%date% %time%
+format-padding=1
+format-background=${color.shade1}
+format-foreground=${color.fground}
+
+[module/audio]
+type=internal/pulseaudio
+format-volume=<ramp-volume> <label-volume>
+format-volume-background=${color.shade2}
+format-volume-foreground=${color.fground}
+format-volume-padding=1
+label-volume=%percentage%%
+
+format-muted-prefix=%{T4}ﱝ
+format-muted-background=${color.shade2}
+format-muted-foreground=${color.fground}
+format-muted-padding=1
+label-muted= " Muted"
+
+ramp-volume-0=%{T4}奄
+ramp-volume-1=%{T4}奔
+ramp-volume-2=%{T4}墳
+
+[module/network]
+type=internal/network
+interface=wlp0s20f0u6
+interval=1.0
+accumulate-stats=true
+unknown-as-up=true
+
+format-connected=<label-connected>
+format-connected-background=${color.shade3}
+format-connected-foreground=${color.fground}
+format-connected-padding=1
+label-connected="直 %essid%"
+
+format-disconnected=<label-disconnected>
+format-disconnected-background=${color.shade3}
+format-disconnected-foreground=${color.fground}
+format-disconnected-padding=1
+label-disconnected="睊 Disconnected"
+
+[module/spotify]
+type=custom/script
+exec=python /usr/share/polybar/scripts/spotify_status.py -t 50 -f "{artist} - {song}"
+interval=1
+format-prefix=" "
+format=<label>
+format-padding=1
+format-background=${color.shade2}

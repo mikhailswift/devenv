@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Switch to vi mode
 bindkey -v
 
@@ -193,15 +200,6 @@ if [[ $COMPLETION_WAITING_DOTS = true ]]; then
   bindkey "^I" expand-or-complete-with-dots
 fi
 
-
-# Powerlevel10k config
-DEFAULT_USER="mswift"
-POWERLEVEL9K_MODE="nerdfont-complete"
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_last"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
-source ~/.zshplugins/powerlevel10k/powerlevel10k.zsh-theme
-
 # Syntax highlighting
 source ~/.zshplugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -216,7 +214,8 @@ case `uname` in
 esac
 alias grep="grep --color=auto --exclude-dir=.git"
 
-if [[ $TERM == xterm-termite ]]; then
-  . /etc/profile.d/vte.sh
-  __vte_osc7
-fi
+DEFAULT_USER=mswift
+ZLE_RPROMPT_INDENT=0
+source ~/.zshplugins/powerlevel10k/powerlevel10k.zsh-theme
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

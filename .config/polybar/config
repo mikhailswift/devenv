@@ -17,18 +17,17 @@
 ;==========================================================
 
 [color]
-bground=#282c34
-fground=#f7f7f7
-accent=#1E88E5
-shade1=#0D47A1
-shade2=#1565C0
-shade3=#1976D2
-shade4=#1E88E5
-shade5=#2196F3
-shade6=#42A5F5
-shade7=#64B5F6
-shade8=#90CAF9
-red=#e53935
+bground=#2e3440
+fground=#d8dee9
+shade1=#5E81AC
+shade2=#81A1C1
+shade3=#88C0D0
+shade4=#8FBCBB
+red=#BF616A
+;shade5=#2196F3
+;shade6=#42A5F5
+;shade7=#64B5F6
+;shade8=#90CAF9
 
 [bar/main]
 monitor=
@@ -45,8 +44,6 @@ background=${color.bground}
 foreground=${color.fground}
 radius-top=0
 radius-bottom=0
-overline-size=2
-overline-color=${color.accent}
 padding=0
 module-margin-left=0
 module-margin-right=0
@@ -61,8 +58,8 @@ tray-padding = 0
 tray-scale = 1.0
 enable-ipc = true
 
-font-0="Sauce Code Pro Nerd Font:size=9;2"
-font-1="Sauce Code Pro Nerd Font:size=16;3"
+font-0="Fira Code:size=9;2"
+font-1="Fira Code:size=16;3"
 font-2="Symbols Nerd Font:size=9;2"
 font-3="Symbols Nerd Font:size=11;2"
 
@@ -128,9 +125,9 @@ type=internal/i3
 label-focused=
 label-unfocused=
 label-urgent=
-label-focused-foreground=${color.accent}
+label-focused-foreground=${color.shade1}
 label-focused-padding=1
-label-unfocused-foreground=${color.accent}
+label-unfocused-foreground=${color.shade1}
 label-unfocused-padding=1
 label-urgent-foreground=${color.red}
 label-urgent-padding=1

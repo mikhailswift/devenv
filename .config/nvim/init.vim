@@ -6,7 +6,7 @@ if dein#load_state('~/.cache/dein')
     call dein#begin('~/.cache/dein')
         " Basic plugins (themes/settings)
         call dein#add('tpope/vim-sensible')
-        call dein#add('joshdick/onedark.vim')
+        call dein#add('arcticicestudio/nord-vim')
 
         " Global utiltiy plugins
         call dein#add('itchyny/lightline.vim')
@@ -46,14 +46,21 @@ set hidden
 set showcmd
 set updatetime=250
 set noshowmode
+set cursorline
 au VimLeave * set guicursor=a:ver25
 nnoremap <SPACE> <Nop>
 let mapleader= "\<Space>"
 
 " color theme
-let g:onedark_terminal_italics=1
-colorscheme onedark
-let g:lightline = { 'colorscheme': 'onedark' }
+let g:nord_uniform_diff_background=1
+let g:nord_cursor_line_number_background=1
+let g:nord_underline=1
+colorscheme nord
+let g:lightline = {
+    \ 'colorscheme': 'nord',
+    \ 'separator': { 'left': '', 'right': '' },
+    \ 'subseparator': { 'left': '', 'right': '' },
+\}
 
 " Opens NERDTree to current file's directory or directory vim was run from
 nmap <silent><C-n> :execute (@% == '' ? 'NERDTreeToggle' : 'NERDTreeToggle %')<CR>

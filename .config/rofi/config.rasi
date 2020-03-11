@@ -1,7 +1,7 @@
 
 configuration {
     modi: "window,drun,ssh,combi";
-    font: "Sauce Code Pro Nerd Font 9";
+    font: "Fira Code 9";
     combi-modi: "window,drun,ssh";
 }
 

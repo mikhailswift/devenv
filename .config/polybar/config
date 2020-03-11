@@ -30,6 +30,7 @@ red=#BF616A
 ;shade8=#90CAF9
 
 [bar/main]
+dpi=144
 monitor=
 monitor-fallback=
 monitor-strict=false
@@ -37,7 +38,7 @@ override-redirect=false
 bottom=false
 fixed-center=true
 width=100%
-height=22
+height=32
 offset-x=0
 offset-y=0
 background=${color.bground}
@@ -218,3 +219,6 @@ format-charging=<animation-charging> <label-charging>
 format-discharging-padding=1
 format-discharging-background=${color.shade1}
 format-discharging=<ramp-capacity> <label-discharging>
+format-full-padding=1
+format-full-background=${color.shade1}
+format-full=ﮣ <label-full>

@@ -15,12 +15,12 @@ exec --no-startup-id dunst
 exec --no-startup-id autorandr -c
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
-set $mod Mod4 
+set $mod Mod4
 
 # Remap directional keys to vim defaults
 set $left h
-set $up j
-set $down k
+set $down j
+set $up k
 set $right l
 # Remap horizontal to b
 set $horiz b

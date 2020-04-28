@@ -214,6 +214,8 @@ case `uname` in
 esac
 alias grep="grep --color=auto --exclude-dir=.git"
 
+source ~/.zshplugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 DEFAULT_USER=mswift
 ZLE_RPROMPT_INDENT=0
 source ~/.zshplugins/powerlevel10k/powerlevel10k.zsh-theme

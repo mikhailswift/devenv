@@ -3,7 +3,10 @@
         "golang": {
             "command": "gopls",
             "rootPatterns": ["go.mod", ".vim/", ".git/"],
-            "filetypes": ["go"]
+            "filetypes": ["go"],
+            "initializationOptions": {
+                "usePlaceholders": true
+            }
         },
         "ccls": {
             "command": "ccls",
@@ -27,5 +30,13 @@
             "args": ["--stdio"]
         }
     },
-    "coc.preferences.formatOnSaveFiletypes": ["css", "Markdown", "javascript", "javascriptreact", "typescript", "typescriptreact", "json"]
+    "coc.preferences.formatOnSaveFiletypes": [
+        "css",
+        "Markdown",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "json"
+    ]
 }

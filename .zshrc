@@ -128,6 +128,8 @@ bindkey "^[m" copy-prev-shell-word
 ## Lifted from oh-my-zsh/lib/completion.zsh
 # fixme - the load process here seems a bit bizarre
 zmodload -i zsh/complist
+autoload -U compinit && compinit
+autoload -U bashcompinit && bashcompinit
 
 WORDCHARS=''
 
@@ -200,8 +202,6 @@ if [[ $COMPLETION_WAITING_DOTS = true ]]; then
   bindkey "^I" expand-or-complete-with-dots
 fi
 
-# Syntax highlighting
-source ~/.zshplugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Aliases
 case `uname` in
@@ -221,3 +221,4 @@ ZLE_RPROMPT_INDENT=0
 source ~/.zshplugins/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source ~/.zshplugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

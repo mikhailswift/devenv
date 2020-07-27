@@ -31,7 +31,7 @@ red=#BF616A
 
 [bar/main]
 "dpi=144
-monitor=
+monitor= ${env:MONITOR:}
 monitor-fallback=
 monitor-strict=false
 override-redirect=false

@@ -26,6 +26,7 @@ nvidia
 nvidia-settings
 openssh
 picom
+playerctl
 pulseaudio
 pulseaudio-alsa
 python-pip

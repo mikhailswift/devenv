@@ -218,7 +218,12 @@ source ~/.zshplugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 DEFAULT_USER=mswift
 ZLE_RPROMPT_INDENT=0
-source ~/.zshplugins/powerlevel10k/powerlevel10k.zsh-theme
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+
+[[ ! -f ~/.zshplugins/powerlevel10k/powerlevel10k.zsh-theme ]] || source ~/.zshplugins/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source ~/.zshplugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ ! -f ~/.zshplugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] || source ~/.zshplugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ ! -f /usr/local/aws-cli/v2/current/bin/aws_completer ]] || complete -C '/usr/local/aws-cli/v2/current/bin/aws_completer' aws
+
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpg-connect-agent updatestartuptty /bye > /dev/null

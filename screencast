@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 usage() {
     echo "$0 [outfile]"
     echo "$0 will run until it receives a SIGTERM or SIGINT."
@@ -9,14 +10,9 @@ usage() {
 writegif() {
     kill $FFMPEG_PID
     wait $FFMPEG_PID
-    PALETTEFILE=$TMPFILE.palette.png
-    notification_id=$(dunstify -p -t 900000 -a "$0" 'Screencast' 'Generating palette')
-    ffmpeg -y -i $TMPFILE -vf fps=10,palettegen $PALETTEFILE 
-    dunstify -C "${notification_id}"
     notification_id=$(dunstify -p -t 900000 -a "$0" 'Screencast' 'Generating GIF')
-    ffmpeg -y -i $TMPFILE -i $PALETTEFILE -filter_complex paletteuse $OUTPUT
+    convert -set delay 10 -layers Optimize $TMPFILE $OUTPUT
     dunstify -C "${notification_id}"
-    rm $PALETTEFILE
     rm $TMPFILE
 }
 
@@ -26,9 +22,9 @@ if [ -z $1 ]; then
 fi
 
 OUTPUT=$1
-TMPFILE="$(mktemp -t screencast-XXXXXXX.mkv)"
+TMPFILE="$(mktemp -t screencast-XXXXXXX.avi)"
 trap writegif EXIT SIGTERM SIGINT
 read -r X Y W H G ID < <(slop -f "%x %y %w %h %g %i")
-ffmpeg -y -f x11grab -s "$W"x"$H" -i :0.0+$X,$Y "$TMPFILE" &
+ffmpeg -y -f x11grab -framerate 15 -s "$W"x"$H" -i :0.0+$X,$Y -codec:v huffyuv "$TMPFILE" &
 FFMPEG_PID=$!
 dunstify -b -a "$0" -t 900000 --action="stop,Stop Recording" "Screencast" "Capturing screen. Dismiss notification to stop recording"

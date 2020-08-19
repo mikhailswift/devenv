@@ -224,6 +224,6 @@ ZLE_RPROMPT_INDENT=0
 [[ ! -f ~/.zshplugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] || source ~/.zshplugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [[ ! -f /usr/local/aws-cli/v2/current/bin/aws_completer ]] || complete -C '/usr/local/aws-cli/v2/current/bin/aws_completer' aws
 
-export GPG_TTY="$(tty)"
+export GPG_TTY="$TTY"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpg-connect-agent updatestartuptty /bye > /dev/null

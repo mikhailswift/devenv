@@ -213,16 +213,18 @@ case `uname` in
         ;;
 esac
 alias grep="grep --color=auto --exclude-dir=.git"
-
-source ~/.zshplugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+alias vim="nvim"
+alias cp="cp --reflink=auto"
+[[ $TERM == "xterm-kitty" ]] && alias ssh="kitty +kitten ssh"
 
 DEFAULT_USER=mswift
 ZLE_RPROMPT_INDENT=0
 
-[[ ! -f ~/.zshplugins/powerlevel10k/powerlevel10k.zsh-theme ]] || source ~/.zshplugins/powerlevel10k/powerlevel10k.zsh-theme
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-[[ ! -f ~/.zshplugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] || source ~/.zshplugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-[[ ! -f /usr/local/aws-cli/v2/current/bin/aws_completer ]] || complete -C '/usr/local/aws-cli/v2/current/bin/aws_completer' aws
+[[ -f ~/.zshplugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source ~/.zshplugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+[[ -f ~/.zshplugins/powerlevel10k/powerlevel10k.zsh-theme ]] && source ~/.zshplugins/powerlevel10k/powerlevel10k.zsh-theme
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+[[ -f ~/.zshplugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source ~/.zshplugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -f /usr/local/aws-cli/v2/current/bin/aws_completer ]] && complete -C '/usr/local/aws-cli/v2/current/bin/aws_completer' aws
 
 export GPG_TTY="$TTY"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)

@@ -3,7 +3,7 @@ set -x
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 ln -sf $DIR/{.zshplugins,.zshrc,.p10k.zsh,.prettierrc} "$HOME/"
 mkdir -p $HOME/{.local/bin,.config/{dunst,fontconfig/conf.d,i3,kitty,nvim,picom,polybar,rofi}}
-ln -sf $DIR/{lock.sh,screencast} "$HOME/.local/bin/"
+ln -sf $DIR/{lock.sh,screencast,setup_comm_workspace.sh} "$HOME/.local/bin/"
 ln -sf $DIR/.config/dunst/* "$HOME/.config/dunst/"
 ln -sf $DIR/.config/fontconfig/conf.d/* "$HOME/.config/fontconfig/conf.d/"
 ln -sf $DIR/.config/i3/* "$HOME/.config/i3/"

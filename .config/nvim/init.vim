@@ -75,7 +75,7 @@ let g:go_def_mapping_enabled = 0
 let g:go_gopls_enabled = 0
 
 " coc.nvim setup
-let g:coc_global_extensions=['coc-tsserver', 'coc-prettier', 'coc-json', 'coc-eslint', 'coc-css', ]
+let g:coc_global_extensions=['coc-tsserver', 'coc-prettier', 'coc-json', 'coc-eslint', 'coc-css', 'coc-rls', 'coc-snippets']
 set shortmess+=c
 set signcolumn=yes
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -118,3 +118,5 @@ function! s:show_documentation()
     call CocActionAsync('doHover')
   endif
 endfunction
+
+autocmd FileType javascript,typescript,json,html,css setlocal ts=2 sw=2 expandtab

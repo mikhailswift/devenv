@@ -7,5 +7,5 @@ if type "xrandr"; then
         DEFAULT_NETWORK_IFACE=$(ip route | grep '^default' | awk '{print $5}' | head -n1) MONITOR=$m polybar --reload main &
     done
 else
-    DEFAULT_NETWORK_IFACE=$(ip route | grep '^default' | awk '{print $5}' | head -n1) polybar main &
+    DEFAULT_NETWORK_IFACE="wlan0" polybar main &
 fi

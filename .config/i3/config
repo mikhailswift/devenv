@@ -210,8 +210,8 @@ bindsym XF86AudioPause exec --no-startup-id "playerctl --player=spotify,chromium
 bindsym XF86AudioNext exec --no-startup-id "playerctl --player=spotify,chromium next"
 bindsym XF86AudioPrev exec --no-startup-id "playerctl --player=spotify,chromium previous"
 # Brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 
 for_window [class=".*"] border pixel 0
 gaps inner 8

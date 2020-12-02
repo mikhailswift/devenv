@@ -30,7 +30,6 @@ red=#BF616A
 ;shade8=#90CAF9
 
 [bar/main]
-"dpi=144
 monitor= ${env:MONITOR:}
 monitor-fallback=
 monitor-strict=false
@@ -150,15 +149,15 @@ format-volume-foreground=${color.fground}
 format-volume-padding=1
 label-volume=%percentage%%
 
-format-muted-prefix=%{T4}ﱝ
+format-muted-prefix=%{T4}ﱝ%{T-}
 format-muted-background=${color.shade2}
 format-muted-foreground=${color.fground}
 format-muted-padding=1
 label-muted= " Muted"
 
-ramp-volume-0=%{T4}奄
-ramp-volume-1=%{T4}奔
-ramp-volume-2=%{T4}墳
+ramp-volume-0=%{T4}奄%{T-}
+ramp-volume-1=%{T4}奔%{T-}
+ramp-volume-2=%{T4}墳%{T-}
 
 [module/network]
 type=internal/network

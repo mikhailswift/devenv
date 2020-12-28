@@ -11,7 +11,7 @@ if dein#load_state('~/.cache/dein')
         " Global utiltiy plugins
         call dein#add('itchyny/lightline.vim')
         call dein#add('scrooloose/nerdtree')
-        call dein#add('sheerun/vim-polyglot', { 'merged': 0, 'build': './build' })
+        call dein#add('sheerun/vim-polyglot', {'merged': 0})
        
         " Git in vim
         call dein#add('tpope/vim-fugitive')
@@ -19,9 +19,6 @@ if dein#load_state('~/.cache/dein')
         
         " Auto complete
         call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'release' })
-
-        " Golang
-        call dein#add('fatih/vim-go')
     call dein#end()
     call dein#save_state()
 endif
@@ -47,6 +44,8 @@ set showcmd
 set updatetime=250
 set noshowmode
 set cursorline
+set undofile
+set undolevels=10000
 au VimLeave * set guicursor=a:ver25
 nnoremap <SPACE> <Nop>
 let mapleader= "\<Space>"
@@ -65,17 +64,10 @@ let g:lightline = {
 " Opens NERDTree to current file's directory or directory vim was run from
 nmap <silent><C-n> :execute (@% == '' ? 'NERDTreeToggle' : 'NERDTreeToggle %')<CR>
 
-" Properly account for spaces in yaml files
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
 let g:gitgutter_override_sign_column_highlight=0
 
-" Go config
-let g:go_def_mapping_enabled = 0
-let g:go_gopls_enabled = 0
-
 " coc.nvim setup
-let g:coc_global_extensions=['coc-tsserver', 'coc-prettier', 'coc-json', 'coc-eslint', 'coc-css', 'coc-rls', 'coc-snippets']
+let g:coc_global_extensions=['coc-tsserver', 'coc-prettier', 'coc-json', 'coc-eslint', 'coc-css', 'coc-rls', 'coc-snippets', 'coc-go']
 set shortmess+=c
 set signcolumn=yes
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -105,7 +97,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-" Use U to show documentation in preview window
+" Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " Remap for rename current word
@@ -119,4 +111,4 @@ function! s:show_documentation()
   endif
 endfunction
 
-autocmd FileType javascript,typescript,json,html,css setlocal ts=2 sw=2 expandtab
+autocmd FileType javascript,typescript,json,html,css,yaml setlocal ts=2 sts=2 sw=2 expandtab

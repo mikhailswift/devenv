@@ -1,13 +1,5 @@
 {
   "languageserver": {
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod", ".vim/", ".git/"],
-      "filetypes": ["go"],
-      "initializationOptions": {
-        "usePlaceholders": true
-      }
-    },
     "ccls": {
       "command": "ccls",
       "filetypes": ["c", "cpp", "objc", "objcpp"],
@@ -17,12 +9,6 @@
           "directory": "/tmp/ccls"
         }
       }
-    },
-    "bash": {
-      "command": "bash-language-server",
-      "args": ["start"],
-      "filetypes": ["sh"],
-      "ignoredRootPaths": ["~"]
     },
     "dockerfile": {
       "command": "docker-langserver",
@@ -46,5 +32,6 @@
     "typescriptreact",
     "json",
     "rust"
-  ]
+  ],
+  "coc.preferences.extensionUpdateCheck": "daily"
 }

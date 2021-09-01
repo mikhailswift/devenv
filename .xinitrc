@@ -3,7 +3,7 @@ if command -v numlockx >/dev/null 2>&1; then
 fi
 
 if command -v gnome-keyring-daemon >/dev/null 2>&1; then
-  gnome-keyring-daemon --start --components=secrets
+  gnome-keyring-daemon --start --components=secrets,pkcs11
 fi
 
 if command -v xss-lock >/dev/null 2>&1; then

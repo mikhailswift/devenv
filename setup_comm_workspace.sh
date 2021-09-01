@@ -39,24 +39,6 @@ cat <<EOF > $LAYOUTFILE
                     "floating": "auto_off",
                     "geometry": {
                        "height": 1042,
-                       "width": 948,
-                       "x": 8,
-                       "y": 30
-                    },
-                    "percent": 0.333333333333333,
-                    "swallows": [
-                       {
-                        "class": "^Mattermost$"
-                       }
-                    ],
-                    "type": "con"
-                },
-                {
-                    "border": "pixel",
-                    "current_border_width": 0,
-                    "floating": "auto_off",
-                    "geometry": {
-                       "height": 1042,
                        "width": 472,
                        "x": 484,
                        "y": 30
@@ -85,7 +67,7 @@ cat <<EOF > $LAYOUTFILE
             "swallows": [
                {
                 "class": "^Chromium$",
-                "title": "^Google\\\\ Hangouts.*"
+                "instance": "^crx_mdpkiolbdkhdjpekfbkbmhigcaggjagi$"
                }
             ],
             "type": "con"
@@ -147,6 +129,6 @@ rm $LAYOUTFILE
 
 (spotify &)
 (discord &)
-(mattermost-desktop &)
 (slack &)
 (yubioath-desktop &)
+(chromium --profile-directory=Default --app-id=mdpkiolbdkhdjpekfbkbmhigcaggjagi &)

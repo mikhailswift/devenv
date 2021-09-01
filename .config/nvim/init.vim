@@ -4,6 +4,7 @@ set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state('~/.cache/dein')
     call dein#begin('~/.cache/dein')
+        call dein#add('~/.cache/dein')
         " Basic plugins (themes/settings)
         call dein#add('tpope/vim-sensible')
         call dein#add('arcticicestudio/nord-vim')
@@ -27,8 +28,8 @@ endif
 filetype plugin indent on
 syntax enable
 set termguicolors
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set mouse=a
 set confirm
@@ -67,7 +68,18 @@ nmap <silent><C-n> :execute (@% == '' ? 'NERDTreeToggle' : 'NERDTreeToggle %')<C
 let g:gitgutter_override_sign_column_highlight=0
 
 " coc.nvim setup
-let g:coc_global_extensions=['coc-tsserver', 'coc-prettier', 'coc-json', 'coc-eslint', 'coc-css', 'coc-rls', 'coc-snippets', 'coc-go']
+let g:coc_global_extensions=['coc-tsserver', 
+  \ 'coc-prettier',
+  \ 'coc-json',
+  \ 'coc-eslint',
+  \ 'coc-css',
+  \ 'coc-rls',
+  \ 'coc-snippets',
+  \ 'coc-go',
+  \ 'coc-pyright',
+  \ 'coc-tailwindcss',
+  \ ]
+
 set shortmess+=c
 set signcolumn=yes
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -112,3 +124,5 @@ function! s:show_documentation()
 endfunction
 
 autocmd FileType javascript,typescript,json,html,css,yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+let g:python3_host_prog = "/usr/bin/python3"

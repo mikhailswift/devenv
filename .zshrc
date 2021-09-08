@@ -225,6 +225,7 @@ ZLE_RPROMPT_INDENT=0
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 [[ -f ~/.zshplugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source ~/.zshplugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [[ -f /usr/local/aws-cli/v2/current/bin/aws_completer ]] && complete -C '/usr/local/aws-cli/v2/current/bin/aws_completer' aws
+[[ -f /usr/share/nvm/init-nvm.sh ]] && source /usr/share/nvm/init-nvm.sh
 
 export GPG_TTY="$TTY"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)

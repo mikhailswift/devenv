@@ -9,18 +9,6 @@
                     "directory": "/tmp/ccls"
                 }
             }
-        },
-        "dockerfile": {
-            "command": "docker-langserver",
-            "filetypes": ["dockerfile"],
-            "args": ["--stdio"]
-        },
-        "terraform": {
-            "command": "terraform-ls",
-            "args": ["serve"],
-            "filetypes": ["terraform", "tf"],
-            "initializationOptions": {},
-            "settings": {}
         }
     },
     "coc.preferences.formatOnSaveFiletypes": [
@@ -37,5 +25,6 @@
         "go"
     ],
     "coc.preferences.extensionUpdateCheck": "daily",
-    "python.formatting.autopep8Path": "/usr/bin/autopep8"
+    "python.formatting.autopep8Path": "/usr/bin/autopep8",
+    "eslint.autoFixOnSave": true
 }

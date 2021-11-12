@@ -7,7 +7,8 @@ if dein#load_state('~/.cache/dein')
         call dein#add('~/.cache/dein')
         " Basic plugins (themes/settings)
         call dein#add('tpope/vim-sensible')
-        call dein#add('arcticicestudio/nord-vim')
+        " call dein#add('arcticicestudio/nord-vim')
+        call dein#add('dracula/vim', {'name': 'dracula'})
 
         " Global utiltiy plugins
         call dein#add('itchyny/lightline.vim')
@@ -55,11 +56,18 @@ let mapleader= "\<Space>"
 let g:nord_uniform_diff_background=1
 let g:nord_cursor_line_number_background=1
 let g:nord_underline=1
-colorscheme nord
+colorscheme dracula
 let g:lightline = {
-    \ 'colorscheme': 'nord',
+    \ 'colorscheme': 'dracula',
     \ 'separator': { 'left': '', 'right': '' },
     \ 'subseparator': { 'left': '', 'right': '' },
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \ 'component_function': {
+	  \   'cocstatus': 'coc#status'
+	  \ },
 \}
 
 " Opens NERDTree to current file's directory or directory vim was run from
@@ -77,7 +85,8 @@ let g:coc_global_extensions=['coc-tsserver',
   \ 'coc-snippets',
   \ 'coc-go',
   \ 'coc-pyright',
-  \ 'coc-tailwindcss',
+  \ 'coc-yaml',
+  \ 'coc-sh',
   \ ]
 
 set shortmess+=c
@@ -100,9 +109,9 @@ endfunction
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
-" Use `[c` and `]c` to navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)

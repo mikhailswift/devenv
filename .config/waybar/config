@@ -12,11 +12,11 @@
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
-        "format": "<span font='12'>{icon}</span>",
+        "format": "{icon}",
         "format-icons": {
             "urgent": "",
             "focused": "",
-            "default": "",
+            "default": "",
         }
     },
     "sway/mode": {
@@ -29,7 +29,7 @@
     },
     "bluetooth": {
         "interval": 30,
-        "format": "<span font='12'>{icon}</span>",
+        "format": "{icon}",
         // "format-alt": "{status}",
         "format-icons": {
             "enabled": "",
@@ -42,15 +42,15 @@
         "spacing": 5
     },
     "clock": {
-        "format": "<span font='13' rise='-2000'></span>  {:%H:%M  <span font='13' rise='-2000'></span> %e %b}",
+        "format": "  {:%H:%M   %e %b}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "today-format": "<b>{}</b>",
         "on-click": "gnome-calendar"
     },
     "pulseaudio": {
         "scroll-step": 3, // %, can be a float
-        "format": "<span font='14' rise='-2000'>{icon}</span> {volume}% <span font='10' rise='-1000'>{format_source}</span>",
-        "format-bluetooth": "{volume}% <span font='14' rise='-2000'>{icon}</span>  <span font='10' rise='-1000'>{format_source}</span>",
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": "{volume}% {icon}  {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
         //"format-source": "{volume}% ",
@@ -70,7 +70,7 @@
         "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
     },
     "custom/media": {
-        "format": "<span font='14' rise='-2000'>{icon}</span> {}",
+        "format": "{icon} {}",
         "return-type": "json",
         "max-length": 40,
         "format-icons": {

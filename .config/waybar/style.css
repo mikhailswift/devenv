@@ -1,23 +1,23 @@
 @keyframes blink-warning {
-  70% {
-    color: @light;
-  }
+    70% {
+        color: @light;
+    }
 
-  to {
-    color: @light;
-    background-color: @warning;
-  }
+    to {
+        color: @light;
+        background-color: @warning;
+    }
 }
 
 @keyframes blink-critical {
-  70% {
-    color: @light;
-  }
+    70% {
+        color: @light;
+    }
 
-  to {
-    color: @light;
-    background-color: @critical;
-  }
+    to {
+        color: @light;
+        background-color: @critical;
+    }
 }
 
 /* -----------------------------------------------------------------------------
@@ -27,7 +27,7 @@
 /* COLORS */
 
 /* Nord */
-@define-color bg #2E3440;
+@define-color bg #282a36;
 /*@define-color bg #353C4A;*/
 @define-color light #D8DEE9;
 /*@define-color dark @nord_dark_font;*/
@@ -57,19 +57,19 @@
 
 /* Reset all styles */
 * {
-  border: none;
-  border-radius: 3px;
-  min-height: 0;
-  margin: 0.2em 0.3em 0.2em 0.3em;
+    border: none;
+    border-radius: 3px;
+    min-height: 0;
+    margin: 0.2em 0.3em 0.2em 0.3em;
 }
 
 /* The whole bar */
 #waybar {
-  background: @bg;
-  color: @light;
-  font-family: "Cantarell";
-  font-size: 12px;
-  font-weight: bold;
+    background: @bg;
+    color: @light;
+    font-family: "Cantarell", "Font Awesome 5 Free";
+    font-size: 12px;
+    font-weight: bold;
 }
 
 /* Each module */
@@ -90,8 +90,8 @@
 #backlight,
 #language,
 #custom-cpugovernor {
-  padding-left: 0.6em;
-  padding-right: 0.6em;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
 }
 
 /* Each module that should blink */
@@ -99,9 +99,9 @@
 #memory,
 #temperature,
 #battery {
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 /* Each critical module */
@@ -109,7 +109,7 @@
 #cpu.critical,
 #temperature.critical,
 #battery.critical {
-  color: @critical;
+    color: @critical;
 }
 
 /* Each critical that should blink */
@@ -117,8 +117,8 @@
 #memory.critical,
 #temperature.critical,
 #battery.critical.discharging {
-  animation-name: blink-critical;
-  animation-duration: 2s;
+    animation-name: blink-critical;
+    animation-duration: 2s;
 }
 
 /* Each warning */
@@ -127,169 +127,171 @@
 #cpu.warning,
 #temperature.warning,
 #battery.warning {
-  background: @warning;
-  color: @nord_dark_font;
+    background: @warning;
+    color: @nord_dark_font;
 }
 
 /* Each warning that should blink */
 #battery.warning.discharging {
-  animation-name: blink-warning;
-  animation-duration: 3s;
+    animation-name: blink-warning;
+    animation-duration: 3s;
 }
 
 /* And now modules themselves in their respective order */
 
 #mode {
-  /* Shown current Sway mode (resize etc.) */
-  color: @light;
-  background: @mode;
+    /* Shown current Sway mode (resize etc.) */
+    color: @light;
+    background: @mode;
 }
 
 /* Workspaces stuff */
 
 #workspaces {
-  /*   color: #D8DEE9;
+    /*   color: #D8DEE9;
     margin-right: 10px;*/
 }
 
 #workspaces button {
-  font-weight: bold; /* Somewhy the bar-wide setting is ignored*/
-  padding: 0;
-  color: #999;
-  opacity: 1;
-  background: none;
-  font-size: 1em;
+    padding: 0;
+    font-weight: normal;
+    color: #999;
+    opacity: 1;
+    background: none;
+    font-size: 1em;
 }
 
 #workspaces button.focused {
-  background: @workspacesfocused;
-  color: #d8dee9;
-  opacity: 1;
-  padding: 0 0.4em;
+    font-weight: bold;
+    background: @workspacesfocused;
+    color: #d8dee9;
+    opacity: 1;
+    padding: 0 0.4em;
 }
 
 #workspaces button.urgent {
-  border-color: #c9545d;
-  color: #c9545d;
-  opacity: 1;
+    font-weight: bold;
+    border-color: #c9545d;
+    color: #c9545d;
+    opacity: 1;
 }
 
 #window {
-  margin-right: 40px;
-  margin-left: 40px;
-  font-weight: normal;
+    margin-right: 40px;
+    margin-left: 40px;
+    font-weight: normal;
 }
 #bluetooth {
-  background: @nord_bg_blue;
-  font-size: 1.2em;
-  font-weight: bold;
-  padding: 0 0.6em;
+    background: @nord_bg_blue;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 0 0.6em;
 }
 #custom-gpu {
-  background: @nord_bg;
-  font-weight: bold;
-  padding: 0 0.6em;
+    background: @nord_bg;
+    font-weight: bold;
+    padding: 0 0.6em;
 }
 #custom-weather {
-  background: @mode;
-  font-weight: bold;
-  padding: 0 0.6em;
+    background: @mode;
+    font-weight: bold;
+    padding: 0 0.6em;
 }
 #custom-pacman {
-  background: @nord_light;
-  color: @nord_dark_font;
-  font-weight: bold;
-  padding: 0 0.6em;
+    background: @nord_light;
+    color: @nord_dark_font;
+    font-weight: bold;
+    padding: 0 0.6em;
 }
 #custom-scratchpad-indicator {
-  background: @nord_light;
-  color: @nord_dark_font;
-  font-weight: bold;
-  padding: 0 0.6em;
+    background: @nord_light;
+    color: @nord_dark_font;
+    font-weight: bold;
+    padding: 0 0.6em;
 }
 #idle_inhibitor {
-  background: @mode;
-  /*font-size: 1.6em;*/
-  font-weight: bold;
-  padding: 0 0.6em;
+    background: @mode;
+    /*font-size: 1.6em;*/
+    font-weight: bold;
+    padding: 0 0.6em;
 }
 #custom-alsa {
-  background: @sound;
+    background: @sound;
 }
 
 #network {
-  background: @nord_bg_blue;
+    background: @nord_bg_blue;
 }
 
 #memory {
-  background: @memory;
+    background: @memory;
 }
 
 #cpu {
-  background: @nord_bg;
-  color: #d8dee9;
+    background: @nord_bg;
+    color: #d8dee9;
 }
 #cpu.critical {
-  color: @nord_dark_font;
+    color: @nord_dark_font;
 }
 #language {
-  background: @nord_bg_blue;
-  color: #d8dee9;
-  padding: 0 0.4em;
+    background: @nord_bg_blue;
+    color: #d8dee9;
+    padding: 0 0.4em;
 }
 #custom-cpugovernor {
-  background-color: @nord_light;
-  color: @nord_dark_font;
+    background-color: @nord_light;
+    color: @nord_dark_font;
 }
 #custom-cpugovernor.perf {
 }
 #temperature {
-  background-color: @nord_bg;
-  color: #d8dee9;
+    background-color: @nord_bg;
+    color: #d8dee9;
 }
 #temperature.critical {
-  background: @critical;
+    background: @critical;
 }
 #custom-layout {
-  background: @layout;
+    background: @layout;
 }
 
 #battery {
-  background: @battery;
+    background: @battery;
 }
 
 #backlight {
-  background: @backlight;
+    background: @backlight;
 }
 
 #clock {
-  background: @nord_bg_blue;
-  color: #d8dee9;
+    background: @nord_bg_blue;
+    color: #d8dee9;
 }
 #clock.date {
-  background: @date;
+    background: @date;
 }
 
 #clock.time {
-  background: @mode;
+    background: @mode;
 }
 
 #pulseaudio {
-  /* Unsused but kept for those who needs it */
-  background: @nord_bg_blue;
-  color: #d8dee9;
+    /* Unsused but kept for those who needs it */
+    background: @nord_bg_blue;
+    color: #d8dee9;
 }
 
 #pulseaudio.muted {
-  background: #bf616a;
-  color: #bf616a;
-  /* No styles */
+    background: #bf616a;
+    color: #bf616a;
+    /* No styles */
 }
 #pulseaudio.source-muted {
-  background: #d08770;
-  color: #d8dee9;
-  /* No styles */
+    background: #d08770;
+    color: #d8dee9;
+    /* No styles */
 }
 #tray {
-  background: #434c5e;
+    background: #434c5e;
 }

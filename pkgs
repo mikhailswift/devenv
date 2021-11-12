@@ -31,7 +31,6 @@ make
 man-db
 man-pages
 neovim
-nerd-fonts-complete
 noto-fonts-cjk
 noto-fonts-emoji
 nvm
@@ -59,7 +58,7 @@ swaylock
 texinfo
 ttf-dejavu
 ttf-fira-code
-ttf-google-fonts-git
+ttf-font-awesome
 ttf-liberation
 vulkan-radeon
 waybar

@@ -1,29 +1,15 @@
 set nocompatible
 
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-
-if dein#load_state('~/.cache/dein')
-    call dein#begin('~/.cache/dein')
-        call dein#add('~/.cache/dein')
-        " Basic plugins (themes/settings)
-        call dein#add('tpope/vim-sensible')
-        " call dein#add('arcticicestudio/nord-vim')
-        call dein#add('dracula/vim', {'name': 'dracula'})
-
-        " Global utiltiy plugins
-        call dein#add('itchyny/lightline.vim')
-        call dein#add('scrooloose/nerdtree')
-        call dein#add('sheerun/vim-polyglot', {'merged': 0})
-       
-        " Git in vim
-        call dein#add('tpope/vim-fugitive')
-        call dein#add('airblade/vim-gitgutter')
-        
-        " Auto complete
-        call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'release' })
-    call dein#end()
-    call dein#save_state()
-endif
+call plug#begin()
+Plug 'tpope/vim-sensible'
+Plug 'dracula/vim',{'as': 'dracula'}
+Plug 'itchyny/lightline.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'neoclide/coc.nvim',{'branch': 'release'}
+call plug#end()
 
 " Begin vim settings
 filetype plugin indent on
@@ -92,46 +78,35 @@ let g:coc_global_extensions=['coc-tsserver',
 set shortmess+=c
 set signcolumn=yes
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-" Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-" Remap for rename current word
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
 nmap <leader>rn <Plug>(coc-rename)
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
-  else
+  elseif (coc#rpc#ready())
     call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
 
 autocmd FileType javascript,typescript,json,html,css,yaml setlocal ts=2 sts=2 sw=2 expandtab
-
 let g:python3_host_prog = "/usr/bin/python3"

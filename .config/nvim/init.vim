@@ -9,6 +9,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'neoclide/coc.nvim',{'branch': 'release'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 " Begin vim settings
@@ -110,3 +111,13 @@ endfunction
 
 autocmd FileType javascript,typescript,json,html,css,yaml setlocal ts=2 sts=2 sw=2 expandtab
 let g:python3_host_prog = "/usr/bin/python3"
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  -- One of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = "maintained",
+  highlight = {
+    -- `false` will disable the whole extension
+    enable = true,
+ },
+}

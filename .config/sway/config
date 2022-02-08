@@ -216,10 +216,10 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 # Media player controls
-bindsym XF86AudioPlay exec --no-startup-id "playerctl --player=spotify,chromium play-pause"
-bindsym XF86AudioPause exec --no-startup-id "playerctl --player=spotify,chromium pause"
-bindsym XF86AudioNext exec --no-startup-id "playerctl --player=spotify,chromium next"
-bindsym XF86AudioPrev exec --no-startup-id "playerctl --player=spotify,chromium previous"
+bindsym XF86AudioPlay exec --no-startup-id "playerctl --player=Cider,spotify,chromium,firefox play-pause"
+bindsym XF86AudioPause exec --no-startup-id "playerctl --player=Cider,spotify,chromium,firefox pause"
+bindsym XF86AudioNext exec --no-startup-id "playerctl --player=Cider,spotify,chromium,firefox next"
+bindsym XF86AudioPrev exec --no-startup-id "playerctl --player=Cider,spotify,chromium,firefox previous"
 
 bindsym Print exec --no-startup-id "grimshot copy screen"
 bindsym Shift+Print exec --no-startup-id "grimshot copy area"

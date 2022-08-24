@@ -1,4 +1,4 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+#Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block, everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -125,6 +125,11 @@ bindkey '\C-x\C-e' edit-command-line
 bindkey "^[m" copy-prev-shell-word
 
 
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
+
 ## Lifted from oh-my-zsh/lib/completion.zsh
 # fixme - the load process here seems a bit bizarre
 zmodload -i zsh/complist
@@ -222,11 +227,15 @@ ZLE_RPROMPT_INDENT=0
 
 [[ -f ~/.zshplugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source ~/.zshplugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 [[ -f ~/.zshplugins/powerlevel10k/powerlevel10k.zsh-theme ]] && source ~/.zshplugins/powerlevel10k/powerlevel10k.zsh-theme
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 [[ -f ~/.zshplugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source ~/.zshplugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [[ -f /usr/local/aws-cli/v2/current/bin/aws_completer ]] && complete -C '/usr/local/aws-cli/v2/current/bin/aws_completer' aws
 [[ -f /usr/share/nvm/init-nvm.sh ]] && source /usr/share/nvm/init-nvm.sh
+if command -v kubectl &>/dev/null ; then  source <(kubectl completion zsh); fi
+if command -v pulumi &>/dev/null ; then source <(pulumi gen-completion zsh); fi
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 export GPG_TTY="$TTY"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-gpg-connect-agent updatestartuptty /bye > /dev/null
+gpg-connect-agent updatestartuptty /bye &> /dev/null

@@ -219,7 +219,7 @@ case `uname` in
 esac
 alias grep="grep --color=auto --exclude-dir=.git"
 alias vim="nvim"
-alias cp="cp --reflink=auto"
+[[ $OSTYPE == "linux"* ]] && alias cp="cp --reflink=auto"
 [[ $TERM == "xterm-kitty" ]] && alias ssh="kitty +kitten ssh"
 
 DEFAULT_USER=mswift
@@ -231,7 +231,7 @@ ZLE_RPROMPT_INDENT=0
 [[ -f /usr/local/aws-cli/v2/current/bin/aws_completer ]] && complete -C '/usr/local/aws-cli/v2/current/bin/aws_completer' aws
 [[ -f /usr/share/nvm/init-nvm.sh ]] && source /usr/share/nvm/init-nvm.sh
 if command -v kubectl &>/dev/null ; then  source <(kubectl completion zsh); fi
-if command -v pulumi &>/dev/null ; then source <(pulumi gen-completion zsh); fi
+if command -v pulumi &>/dev/null ; then source <(pulumi gen-completion zsh 2>/dev/null); fi
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh

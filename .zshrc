@@ -228,9 +228,8 @@ ZLE_RPROMPT_INDENT=0
 [[ -f ~/.zshplugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source ~/.zshplugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 [[ -f ~/.zshplugins/powerlevel10k/powerlevel10k.zsh-theme ]] && source ~/.zshplugins/powerlevel10k/powerlevel10k.zsh-theme
 [[ -f ~/.zshplugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source ~/.zshplugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-[[ -f /usr/local/aws-cli/v2/current/bin/aws_completer ]] && complete -C '/usr/local/aws-cli/v2/current/bin/aws_completer' aws
-[[ -f /usr/share/nvm/init-nvm.sh ]] && source /usr/share/nvm/init-nvm.sh
-if command -v kubectl &>/dev/null ; then  source <(kubectl completion zsh); fi
+if command -v aws_completer &>/dev/null ; then complete -C 'aws_completer' aws ; fi
+if command -v kubectl &>/dev/null ; then  source <(kubectl --context default completion zsh); fi
 if command -v pulumi &>/dev/null ; then source <(pulumi gen-completion zsh 2>/dev/null); fi
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
@@ -239,3 +238,6 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-clou
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -d /usr/local/go/bin ] && export PATH=$PATH:/usr/local/go/bin
+export PATH="$PATH:${GOBIN:-$HOME/go/bin}"
+export PATH="$PATH:$HOME/.local/bin"

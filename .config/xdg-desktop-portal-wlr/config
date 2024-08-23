@@ -1,3 +1,0 @@
-[screencast]
-exec_before=dunstctl set-paused true
-exec_after=dunstctl set-paused false

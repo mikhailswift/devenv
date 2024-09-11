@@ -234,6 +234,7 @@ if command -v pulumi &>/dev/null ; then source <(pulumi gen-completion zsh 2>/de
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+[[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

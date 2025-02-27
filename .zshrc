@@ -231,8 +231,8 @@ ZLE_RPROMPT_INDENT=0
 if command -v aws_completer &>/dev/null ; then complete -C 'aws_completer' aws ; fi
 if command -v kubectl &>/dev/null ; then  source <(kubectl --context default completion zsh); fi
 if command -v pulumi &>/dev/null ; then source <(pulumi gen-completion zsh 2>/dev/null); fi
-if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
-if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+if [ -f "$HOME/.local/opt/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/.local/optgoogle-cloud-sdk/path.zsh.inc"; fi
+if [ -f "$HOME/.local/opt/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/.local/opt/google-cloud-sdk/completion.zsh.inc"; fi
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 [[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
 
@@ -240,5 +240,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 [ -d /usr/local/go/bin ] && export PATH=$PATH:/usr/local/go/bin
+[ -d "$HOME/.local/opt/google-cloud-sdk/bin" ] && export PATH="$PATH:/$HOME/.local/opt/google-cloud-sdk/bin"
 export PATH="$PATH:${GOBIN:-$HOME/go/bin}"
 export PATH="$PATH:$HOME/.local/bin"

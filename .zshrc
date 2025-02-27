@@ -231,7 +231,7 @@ ZLE_RPROMPT_INDENT=0
 if command -v aws_completer &>/dev/null ; then complete -C 'aws_completer' aws ; fi
 if command -v kubectl &>/dev/null ; then  source <(kubectl --context default completion zsh); fi
 if command -v pulumi &>/dev/null ; then source <(pulumi gen-completion zsh 2>/dev/null); fi
-if [ -f "$HOME/.local/opt/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/.local/optgoogle-cloud-sdk/path.zsh.inc"; fi
+if [ -f "$HOME/.local/opt/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/.local/opt/google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "$HOME/.local/opt/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/.local/opt/google-cloud-sdk/completion.zsh.inc"; fi
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 [[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
